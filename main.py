@@ -5,22 +5,20 @@ import zipfile
 import img2pdf
 import datetime
 import sys
-
-#memo
-#設定をJSON化
+import json
 
 
+UNZIP_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)) , "temp")
 
 def main():
-
     argv = sys.argv
-    if len(argv) > 2:
+    if len(argv) < 2:
         print("ZIPファイルパスを指定してください")
         return 
 
     ZIP_PATH = argv[1]
     ZIP_FILE_NAME = str(os.path.basename(ZIP_PATH)).replace(" ","")[:-4]
-    PDF_FILE_PATH = ZIP_FILE_NAME+".pdf"
+    PDF_FILE_PATH = os.path.join(os.path.dirname(os.path.abspath(ZIP_PATH)) , ZIP_FILE_NAME+".pdf")
 
     print("unzip:" + ZIP_PATH)
     imgfolder = unzip(ZIP_PATH)
@@ -31,7 +29,6 @@ def main():
     print("Converted images to PDF:" + PDF_FILE_PATH)
 
 def unzip(zipPath):
-    UNZIP_FOLDER = "/Users/kangju/Work/program/zip2pdf/sample/temp"
     unzipFolderNameCache = ""
 
     with zipfile.ZipFile(zipPath) as extZip:
