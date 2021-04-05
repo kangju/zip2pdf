@@ -31,13 +31,18 @@ def main():
     shutil.rmtree(imgfolder)
 
 def unzip(zipPath):
-    unzipFolderNameCache = ""
+    unzipFolderInfoCache = None
+    unzipFolderPath = ""
+    ZIP_FILE_NAME = str(os.path.basename(zipPath)).replace(" ","")[:-4]
 
     with zipfile.ZipFile(zipPath) as extZip:
-        unzipFolderNameCache = extZip.namelist()[0]
-        extZip.extractall(UNZIP_FOLDER)
+        unzipFolderInfoCache = extZip.infolist()[0]
+        unzipFolderPath = UNZIP_FOLDER if unzipFolderInfoCache.is_dir() else os.path.join(UNZIP_FOLDER,ZIP_FILE_NAME)
 
-    return UNZIP_FOLDER
+        extZip.extractall(unzipFolderPath)
+
+    return os.path.join(unzipFolderPath,unzipFolderInfoCache.name) if unzipFolderInfoCache.is_dir() else unzipFolderPath
+
 
 def createPdf(folderpath,createPdfPath):
     imgList = list([str(s) for s in Path(folderpath).glob("*.jpg")])
