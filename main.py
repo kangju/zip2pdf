@@ -35,11 +35,13 @@ def unzip(zipPath):
         unzipFolderNameCache = extZip.namelist()[0]
         extZip.extractall(UNZIP_FOLDER)
 
-    return os.path.join(UNZIP_FOLDER,unzipFolderNameCache)
+    return UNZIP_FOLDER
 
 def createPdf(folderpath,createPdfPath):
     imgList = list([str(s) for s in Path(folderpath).glob("*.jpg")])
     imgList.sort()
+
+    print(f"image cnt:{len(imgList)}")
 
     with open(createPdfPath,"wb") as f:
         f.write(img2pdf.convert(list(imgList)))
