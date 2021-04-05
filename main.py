@@ -28,6 +28,8 @@ def main():
     createPdf(imgfolder,PDF_FILE_PATH)
     print("Converted images to PDF:" + PDF_FILE_PATH)
 
+    shutil.rmtree(imgfolder)
+
 def unzip(zipPath):
     unzipFolderNameCache = ""
 
