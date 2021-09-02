@@ -8,4 +8,4 @@ python 3.9
 
 ## Licence
 
-[MIT License](https://github.com/kangju/zip2pdf/blob/master/LICENCE)
+[MIT License](https://github.com/kangju/zip2pdf/blob/master/LICENSE)
