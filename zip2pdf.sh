@@ -2,8 +2,12 @@
 
 CALL_DIR=$(PWD)
 
-cd $(dirname $(readlink $0))
+PYTHON_DIR=$(dirname $(readlink $0))
 
-pipenv run python main.py $@
+cd $PYTHON_DIR
+
+source $(pipenv --venv)/bin/activate
 
 cd $CALL_DIR
+
+python $PYTHON_DIR/main.py "$@"
