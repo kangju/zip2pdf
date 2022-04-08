@@ -1,3 +1,5 @@
+#coding:utf8
+
 from pathlib import Path
 import shutil
 import os
