@@ -5,12 +5,11 @@ import shutil
 import os
 import zipfile
 import img2pdf
-import datetime
 import sys
-import json
+import re
 
-
-UNZIP_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)) , "temp")
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+UNZIP_FOLDER = os.path.join(CURRENT_DIR , "temp")
 
 def main():
     argv = sys.argv
@@ -47,7 +46,7 @@ def unzip(zipPath):
 
 
 def createPdf(folderpath,createPdfPath):
-    imgList = list([str(s) for s in Path(folderpath).glob("*.jpg")])
+    imgList = list([str(s) for s in Path(folderpath).glob("*") if re.search(".*\.(jpg|jpeg|png)",str(s))])
     imgList.sort()
 
     print(f"image cnt:{len(imgList)}")
