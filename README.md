@@ -1,6 +1,6 @@
 # ZIP2PDF
 ## 概要(What is ZIP2PDF?)
-ZIPファイルで圧縮されたJPGファイルをPDFに変換します。  
+ZIPファイルで圧縮されたJPGファイル・PNGファイルをPDFに変換します。  
 ZIPファイルと同じディレクトリにZIPファイルと同じ名前で保存されます。
 
 ## 実行環境(environment)
