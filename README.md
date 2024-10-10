@@ -4,7 +4,7 @@ ZIPファイルで圧縮されたJPGファイル・PNGファイルをPDFに変�
 ZIPファイルと同じディレクトリにZIPファイルと同じ名前で保存されます。
 
 ## 実行環境(environment)
-python 3.9
+python 3.13.0
 
 ## 依存関係(requirement)  
 [pipenv](https://github.com/pypa/pipenv)
