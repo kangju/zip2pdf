@@ -6,7 +6,7 @@ PYTHON_DIR=$(dirname $(readlink $0))
 
 cd $PYTHON_DIR
 
-source $(pipenv --venv)/bin/activate
+source myvenv/bin/activate
 
 cd $CALL_DIR
 
