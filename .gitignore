@@ -4,3 +4,10 @@
 
 #temp folder
 temp/
+
+
+# Python cache files
+__pycache__/
+
+# vscode settings
+.vscode/
